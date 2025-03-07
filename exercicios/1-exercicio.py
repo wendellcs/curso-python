@@ -15,9 +15,7 @@ print(ultimoNome, ',' , primeiroNome)
 # Exercicio 2: 
 
 frase = 'Aprofundando os meus conhecimentos em python'
-novaFrase = frase.split(' ')
-novaFrase.reverse()
-print(' '.join(novaFrase))
+print(frase[::-1])
 
 # Exercicio 3:
 
