@@ -1,9 +1,12 @@
+from models.rating import Rating
+
 # Encapsulation - Refers to a bundling ( group ) of attributes and methods that operate on the data 
 # into a class. 
 # It also retricts direct acces to some components, which helps protect the integrity of the data.
-  
+
 class Library:
     librarys = []
+
 
     def __init__(self, name):
         self.name = name
@@ -11,6 +14,7 @@ class Library:
         # Double underscore refers to the private method, which can not be accessed outside the class.
         # self._active = False 
         self.__active = False
+        self.__rating = []
 
         Library.librarys.append(self) # self is a reference for the object.
 
@@ -34,3 +38,7 @@ class Library:
     @property 
     def active(self):
         return 'Activated' if self.__active else 'Deactivated'
+    
+    def receive_rating(self, client, note):
+        rating = Rating(client, note)
+        self.__rating.append(rating)
