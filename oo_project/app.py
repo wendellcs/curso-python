@@ -3,12 +3,18 @@ from models.items.book import Book
 from models.items.magazine import Magazine
 
 book1 = Book('1984', 'Geroge Orwell', 30.0, '084-3245')
+book2 = Book('Brave New World', 'Aldous Huxley', 25.0, '084-3245657')
 magazine1 = Magazine('National Geographic', 'John Doe', 15.0, '5th')
 
-# city_library = Library("City's Library")
+city_library = Library("City's Library")
 # city_library.__active = True # Won't have effect, since this is a private method.
 # city_library.toggle_state()
 
+city_library.add_item(book1)
+city_library.add_item(book2)
+city_library.add_item(magazine1)
+
+city_library.show_items()
 # city_library.receive_rating('João', 7.9)
 # city_library.receive_rating('Marcela', 5.3)
 
@@ -20,8 +26,9 @@ magazine1 = Magazine('National Geographic', 'John Doe', 15.0, '5th')
 
 def main():
     # Library.list_librarys()
-    print(vars(book1))
-    print(vars(magazine1))
+    # print(vars(book1))
+    # print(vars(magazine1))
+    pass
 
 # Chechs if this file is being directly executed or imported.
 if __name__ == '__main__':

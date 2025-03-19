@@ -1,4 +1,5 @@
 from models.rating import Rating
+from models.items.item_library import ItemLibrary
 
 # Encapsulation - Refers to a bundling ( group ) of attributes and methods that operate on the data 
 # into a class. 
@@ -14,6 +15,7 @@ class Library:
         # self._active = False 
         self._active = False
         self._rating = []
+        self._items = []
 
         Library.librarys.append(self) # self is a reference for the object.
 
@@ -50,3 +52,17 @@ class Library:
         total_sum = sum(rating._note for rating in self._rating)
         average = round(total_sum / len(self._rating), 1)
         return average
+    
+    def add_item(self, item):
+        if isinstance(item, ItemLibrary):
+            self._items.append(item)
+
+    def show_items(self):
+        print(f"Library's items {self.name}:\n")
+        for i, item in enumerate(self._items, start=1): # enumerate - Returns both item and index
+            if hasattr(item, 'isbn'): # hasattr - Checks if an item has an especific attribute.
+                msg_book = f'{i}. ( Book ) -> Title: {item._title} | Author: {item._author} | Price: {item._price} | ISBN: {item.isbn}'
+                print(msg_book)
+            else:
+                msg_magazine = f'{i}. ( Magazine ) -> Title: {item._title} | Author: {item._author} | Price: {item._price} | Edition: {item.edition}'
+                print(msg_magazine)
