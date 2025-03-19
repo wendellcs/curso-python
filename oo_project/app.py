@@ -10,6 +10,9 @@ city_library = Library("City's Library")
 # city_library.__active = True # Won't have effect, since this is a private method.
 # city_library.toggle_state()
 
+book1.apply_discount()
+magazine1.apply_discount()
+
 city_library.add_item(book1)
 city_library.add_item(book2)
 city_library.add_item(magazine1)
